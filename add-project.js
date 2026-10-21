@@ -1,63 +1,56 @@
+
 document.addEventListener("DOMContentLoaded", function () {
-    const projectForm = document.getElementById("projectForm");
+    const form = document.getElementById("projectForm");
     const year = document.getElementById("year");
 
-    year.textContent = new Date().getFullYear();
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 
-    projectForm.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        if (!form.reportValidity()) return;
+
         const project = {
-            id: "",
-            name: document.getElementById("projectName").value.trim(),
+            projectName: document.getElementById("projectName").value.trim(),
             district: document.getElementById("district").value,
             division: document.getElementById("division").value.trim(),
             gsDivision: document.getElementById("gsDivision").value.trim(),
             sector: document.getElementById("sector").value,
             responsiblePerson: document.getElementById("responsiblePerson").value.trim(),
-            budget: Number(document.getElementById("budget").value),
+            budget: document.getElementById("budget").value,
             status: document.getElementById("status").value,
-            description: document.getElementById("description").value.trim(),
-            dateAdded: new Date().toISOString()
+            description: document.getElementById("description").value.trim()
         };
 
-        if (!project.name || !project.district || !project.division ||
-            !project.gsDivision || !project.sector ||
-            !project.responsiblePerson ||
-            document.getElementById("budget").value === "" ||
-            !Number.isFinite(project.budget) || project.budget < 0) {
-            alert("Please complete all required fields correctly.");
-            return;
-        }
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = "Saving project...";
 
         try {
-            const savedProjects = JSON.parse(
-                localStorage.getItem("rdbProjects") || "[]"
-            );
+            const response = await fetch("save-project.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(project)
+            });
 
-            if (!Array.isArray(savedProjects)) {
-                throw new Error("Invalid saved project data");
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || "Unable to save project.");
             }
 
-            const highestId = savedProjects.reduce(function (highest, item) {
-                const match = String(item.id || "").match(/^RDB(\d+)$/);
-                return match ? Math.max(highest, Number(match[1])) : highest;
-            }, 4);
-
-            project.id = "RDB" + String(highestId + 1).padStart(3, "0");
-
-            savedProjects.push(project);
-
-            localStorage.setItem(
-                "rdbProjects",
-                JSON.stringify(savedProjects)
-            );
-
-            alert("Project proposal submitted successfully!");
+            alert("Project saved successfully! ID: " + result.projectCode);
             window.location.href = "index.html";
+
         } catch (error) {
-            console.error("Unable to save project:", error);
-            alert("The project could not be saved. Please check browser storage.");
+            console.error("Save error:", error);
+            alert(error.message || "Unable to connect to the server.");
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit Project Proposal →";
         }
     });
 });

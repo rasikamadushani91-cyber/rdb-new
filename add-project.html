@@ -1,90 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RDB-PIFS | Add Project</title>
+    <title>RDB-PIFS | Project Management</title>
     <link rel="stylesheet" href="add-project.css">
     <script src="add-project.js" defer></script>
-    
 </head>
 <body>
 
 <header class="top-header">
-   <div class="logo-icon">
-        <img src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau Logo">
-    </div>
-            <h2>RDB-PIFS</h2>
-            <p>Project Information System</p>
-        </div>
-    </div>
-    <a href="index.html" class="back-link">← Back to Dashboard</a>
+    <a class="brand" href="index.html">
+        <img src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg"
+             alt="Rural Development Bureau Logo">
+        <span>
+            <strong>RDB-PIFS</strong>
+            <small>Project Information System</small>
+        </span>
+    </a>
+    <a href="index.html" class="back-link">← Dashboard</a>
 </header>
 
 <main class="page-container">
     <div class="page-title">
         <div>
-            <span class="eyebrow">PROJECT MANAGEMENT</span>
-            <h1>Add New Project</h1>
-            <p>Enter the proposed project information below.</p>
+            <span class="eyebrow">RURAL DEVELOPMENT BUREAU</span>
+            <h1>Project Information Management</h1>
+            <p>Enter, manage, filter and report rural development project information.</p>
         </div>
-        <div class="title-icon">📋</div>
     </div>
 
     <form id="projectForm">
         <section class="form-section">
-            <h2>01. Project Information</h2>
+            <h2>Project Information</h2>
+            <p class="section-description">Enter the project identity and responsible officers.</p>
 
             <div class="form-grid">
-                <div class="field full-width">
-                    <label for="projectName">Project Name *</label>
-                    <input id="projectName" name="projectName"
-                           placeholder="Enter the proposed project name" required>
+                <div class="field">
+                    <label for="projectId">Project Number / ID</label>
+                    <input id="projectId" name="projectId"
+                           placeholder="Auto-generated if left blank">
                 </div>
-
+                <div class="field">
+                    <label for="projectName">Project Name *</label>
+                    <input id="projectName" name="projectName" required>
+                </div>
                 <div class="field">
                     <label for="district">District *</label>
                     <select id="district" name="district" required>
                         <option value="">Select District</option>
-                        <option>Ampara</option>
-                        <option>Anuradhapura</option>
-                        <option>Badulla</option>
-                        <option>Batticaloa</option>
-                        <option>Colombo</option>
-                        <option>Galle</option>
-                        <option>Gampaha</option>
-                        <option>Hambantota</option>
-                        <option>Jaffna</option>
-                        <option>Kalutara</option>
-                        <option>Kandy</option>
-                        <option>Kegalle</option>
-                        <option>Kurunegala</option>
-                        <option>Mannar</option>
-                        <option>Matale</option>
-                        <option>Matara</option>
-                        <option>Monaragala</option>
-                        <option>Mullaitivu</option>
-                        <option>Nuwara Eliya</option>
-                        <option>Polonnaruwa</option>
-                        <option>Puttalam</option>
-                        <option>Ratnapura</option>
-                        <option>Trincomalee</option>
-                        <option>Vavuniya</option>
                     </select>
                 </div>
-
                 <div class="field">
-                    <label for="division">Division *</label>
-                    <input id="division" name="division"
-                           placeholder="Enter divisional area" required>
+                    <label for="division">DS Division *</label>
+                    <select id="division" name="division" required disabled>
+                        <option value="">Select District First</option>
+                    </select>
                 </div>
-
                 <div class="field">
-                    <label for="gsDivision">GS Division *</label>
-                    <input id="gsDivision" name="gsDivision"
-                           placeholder="Enter Grama Niladhari division" required>
+                    <label for="gsDivision">GN Division *</label>
+                    <select id="gsDivision" name="gsDivision" required disabled>
+                        <option value="">Select DS Division First</option>
+                    </select>
                 </div>
-
                 <div class="field">
                     <label for="sector">Development Sector *</label>
                     <select id="sector" name="sector" required>
@@ -97,44 +76,168 @@
                         <option>Health</option>
                         <option>Community Development</option>
                         <option>Housing</option>
+                        <option>Livelihood Development</option>
                         <option>Other</option>
                     </select>
                 </div>
-
                 <div class="field">
-                    <label for="responsiblePerson">Responsible Person *</label>
-                    <input id="responsiblePerson" name="responsiblePerson"
-                           placeholder="Officer name" required>
+                    <label for="responsiblePerson">Responsible Person</label>
+                    <input id="responsiblePerson" name="responsiblePerson">
                 </div>
-
                 <div class="field">
-                    <label for="budget">Estimated Budget (LKR) *</label>
-                    <input id="budget" name="budget" type="number"
-                           min="0" step="0.01" placeholder="e.g. 2500000" required>
+                    <label for="projectDate">Project Date</label>
+                    <input id="projectDate" name="projectDate" type="date">
                 </div>
-
                 <div class="field">
-                    <label for="status">Proposal Status *</label>
-                    <select id="status" name="status" required>
-                        <option value="Pending">Pending</option>
-                        <option value="Ongoing">Ongoing</option>
-                        <option value="Completed">Completed</option>
+                    <label for="projectStatus">Overall Status *</label>
+                    <select id="projectStatus" name="projectStatus" required>
+                        <option>Pending</option>
+                        <option>Ongoing</option>
+                        <option>Completed</option>
+                        <option>Rejected</option>
                     </select>
                 </div>
-
-             
+                <div class="field full-width">
+                    <label for="description">Project Description</label>
+                    <textarea id="description" name="description" rows="3"
+                        placeholder="Objectives, activities and expected benefits"></textarea>
+                </div>
+            </div>
         </section>
 
-        <div class="form-footer">
-            <button type="reset" class="clear-button">Clear Form</button>
-            <button type="submit" class="submit-button">
-                Submit Project Proposal →
-            </button>
+        <section class="form-section">
+            <h2>Conceptual Approval — Annexure 01</h2>
+            <p class="section-description">Record proposals received and decisions made during conceptual approval.</p>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="receivedDS">DS proposals received</label>
+                    <input type="number" id="receivedDS" name="receivedDS" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="receivedGN">GN proposals received</label>
+                    <input type="number" id="receivedGN" name="receivedGN" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="approvedGN">GN divisions approved</label>
+                    <input type="number" id="approvedGN" name="approvedGN" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="rejectedGN">GN divisions rejected</label>
+                    <input type="number" id="rejectedGN" name="rejectedGN" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="conceptProjects">Total projects</label>
+                    <input type="number" id="conceptProjects" name="conceptProjects" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="estimatedCost">Estimated cost (LKR)</label>
+                    <input type="number" id="estimatedCost" name="estimatedCost"
+                           min="0" step="0.01" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Approved to Implement — Annexure 02</h2>
+            <p class="section-description">Record approved proposals, beneficiaries and project costs.</p>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="approvedDS">DS proposals approved</label>
+                    <input type="number" id="approvedDS" name="approvedDS" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="approvedGS">GN proposals approved</label>
+                    <input type="number" id="approvedGS" name="approvedGS" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="approvedProjects">Projects approved</label>
+                    <input type="number" id="approvedProjects" name="approvedProjects" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="beneficiaries">Direct beneficiaries</label>
+                    <input type="number" id="beneficiaries" name="beneficiaries" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="projectValue">Project value (LKR)</label>
+                    <input type="number" id="projectValue" name="projectValue"
+                           min="0" step="0.01" value="0">
+                </div>
+                <div class="field">
+                    <label for="approvedCost">Approved cost (LKR)</label>
+                    <input type="number" id="approvedCost" name="approvedCost"
+                           min="0" step="0.01" value="0">
+                </div>
+                <div class="field">
+                    <label for="uncoveredDivisions">Divisions not covered by Praja Shakthi</label>
+                    <input type="number" id="uncoveredDivisions"
+                           name="uncoveredDivisions" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="approvedProjectValue">Approved project value (LKR)</label>
+                    <input type="number" id="approvedProjectValue"
+                           name="approvedProjectValue" min="0" step="0.01" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Allocation and Special Projects</h2>
+            <p class="section-description">Record financial allocations, CDCs and tractor-related projects.</p>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="approvedAllocation">Approved allocation (LKR)</label>
+                    <input type="number" id="approvedAllocation"
+                           name="approvedAllocation" min="0" step="0.01" value="0">
+                </div>
+                <div class="field">
+                    <label for="cdcsEstablished">CDCs established</label>
+                    <input type="number" id="cdcsEstablished"
+                           name="cdcsEstablished" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="tractorProjects">Number of tractor projects</label>
+                    <input type="number" id="tractorProjects"
+                           name="tractorProjects" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="tractorDetails">Tractor project details</label>
+                    <select id="tractorDetails" name="tractorDetails">
+                        <option value="">Select details</option>
+                        <option>New tractor project</option>
+                        <option>Tractor purchase</option>
+                        <option>Tractor allocation</option>
+                        <option>Repair or maintenance</option>
+                        <option>Other</option>
+                        <option>Not applicable</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="tractorQuantity">Number of tractors</label>
+                    <input type="number" id="tractorQuantity"
+                           name="tractorQuantity" min="0" value="0">
+                </div>
+                <div class="field">
+                    <label for="tractorCost">Tractor project cost (LKR)</label>
+                    <input type="number" id="tractorCost" name="tractorCost"
+                           min="0" step="0.01" value="0">
+                </div>
+            </div>
+        </section>
+
+        <div class="form-actions">
+            <button type="reset" class="btn btn-light">Clear Form</button>
+            <button type="submit" class="btn btn-primary">Save Project</button>
         </div>
+        <p id="formMessage" role="status" aria-live="polite"></p>
     </form>
 
-    <p class="footer-note">© <span id="year"></span> RDB-PIFS · Rural Development Bureau</p>
-</main>
 
+    <footer>
+        © <span id="year"></span> RDB-PIFS · Rural Development Bureau
+    </footer>
+</main>
 </body>
 </html>

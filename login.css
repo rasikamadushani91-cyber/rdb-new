@@ -1,0 +1,119 @@
+
+/* General page styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eaf4ff, #c9e2ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Login card */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 65, 130, 0.15);
+}
+
+/* Heading */
+.login-container h1 {
+    text-align: center;
+    color: #0756a5;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #687789;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Form labels */
+#loginForm label {
+    display: block;
+    color: #26374a;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Input fields */
+#loginForm input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccd8e5;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#loginForm input:focus {
+    border-color: #0877d1;
+    box-shadow: 0 0 0 3px rgba(8, 119, 209, 0.12);
+}
+
+/* Login button */
+#loginForm button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background-color: #0866b5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#loginForm button:hover {
+    background-color: #064c8a;
+}
+
+/* Error or status message */
+#loginMessage {
+    color: #d93025;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 14px;
+}
+
+/* Back to home link */
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    color: #0866b5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 25px 20px;
+    }
+
+    .login-container h1 {
+        font-size: 23px;
+    }
+}

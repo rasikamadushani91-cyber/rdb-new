@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RDB| Rural Development Bureau</title>
+
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js" defer></script>
+</head>
+
+<body>
+
+   
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+    <div class="logo-icon">
+        <img src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau Logo">
+    </div>
+
+    <div>
+        <h1>RDB</h1>
+        <p>Rural Development Bureau</p>
+    </div>
+</a>
+
+        <button class="menu-button" id="menuButton"
+                aria-label="Open menu" aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+    <!-- HOME HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <!-- LEFT IMAGE -->
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85"
+                    alt="Green rural landscape">
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="hero-content">
+
+                <p class="welcome">WELCOME </p>
+
+                <h2>
+                    Rural Development
+                    <span>For a Better Future</span>
+                </h2>
+
+                <p class="description">
+                    A Project Information and Filtering System
+                    supporting rural development, project monitoring,
+                    and sustainable communities across Sri Lanka.
+                </p>
+
+                <!-- LOGIN BUTTONS -->
+                <div class="login-buttons">
+
+                    <a href="admin-login.html" class="login-card admin">
+                        <span class="login-icon"></span>
+                        <span>
+                            <strong>Admin Login</strong>
+                            <small>Administrator access</small>
+                        </span>
+                        <b>→</b>
+                    </a>
+
+                    <a href="admin-login.html" class="login-card user">
+                        <span class="login-icon"></span>
+                        <span>
+                            <strong>User Login</strong>
+                            <small>Project information access</small>
+                        </span>
+                        <b>→</b>
+                    </a>
+
+                </div>
+
+                <a href="admin-login.html" class="get-started">
+                    Get Started →
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <p class="section-label">ABOUT OUR SYSTEM</p>
+
+        <h2>Building Stronger Rural Communities</h2>
+
+        <p>
+            RDB provides a central platform to access,
+            organize, filter, and monitor rural development
+            project information.
+        </p>
+
+    </section>
+
+    <!-- PROJECT SECTION -->
+    <section class="projects" id="projects">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-label">OUR WORK</p>
+                <h2>Rural Development Projects</h2>
+            </div>
+        </div>
+
+        <div class="project-container">
+
+            <article class="project-card">
+                <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+                    alt="Community development">
+                <div class="project-info">
+                    <h3>Community Development</h3>
+                    <p>Supporting stronger rural communities.</p>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img
+                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80"
+                    alt="Rural infrastructure">
+                <div class="project-info">
+                    <h3>Infrastructure Development</h3>
+                    <p>Improving facilities and rural access.</p>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img
+                    src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80"
+                    alt="Agriculture and green fields">
+                <div class="project-info">
+                    <h3>Agricultural Development</h3>
+                    <p>Encouraging sustainable rural livelihoods.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+
+        <p class="section-label">WHAT WE PROVIDE</p>
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <span>📊</span>
+                <h3>Project Monitoring</h3>
+                <p>Track development project progress.</p>
+            </div>
+
+            <div class="service-card">
+                <span>🔎</span>
+                <h3>Project Filtering</h3>
+                <p>Find projects using relevant information.</p>
+            </div>
+
+            <div class="service-card">
+                <span>📄</span>
+                <h3>Project Reports</h3>
+                <p>View project details and reports.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+       <div class="copyright">
+            © <span id="year"></span> RDB-PIFS. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>

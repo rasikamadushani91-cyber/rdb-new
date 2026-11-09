@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | RDB-PIFS</title>
+
+    <!-- Connect CSS file -->
+    <link rel="stylesheet" href="login.css">
+    
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h1>RDB-PIFS</h1>
+
+        <p class="login-subtitle">
+            Admin Login
+        </p>
+
+        <form id="loginForm">
+
+            <label for="username">Admin Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">Login</button>
+
+            <p id="loginMessage" role="alert"></p>
+
+        </form>
+
+        <a href="home.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </div>
+
+    <!-- Connect JavaScript file -->
+    <script src="login.js"></script>
+
+</body>
+</html>

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> df5dd00aa051ae69dc090580882ac9b2e7d2adc4
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>RDB-PIFS | Home</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
@@ -95,5 +100,215 @@
     </div>
     <p class="footer-bottom">&copy; <span id="year"></span> Rural Development Bureau. All rights reserved.</p>
 </footer>
+=======
+
+    <title>RDB | Admin Dashboard</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js"></script>
+</head>
+
+<body>
+
+    <!-- Blue Header -->
+    <header class="top-header">
+        <div class="logo">
+             <div class="logo-icon">
+        <img src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau Logo">
+    </div>
+
+                <h2>RDB</h2>
+                <p>Project Information System</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <span class="admin-label">Admin</span>
+            <a href="home.html" class="logout-button">Logout</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3 class="menu-title">MAIN MENU</h3>
+
+            <a href="#dashboard" class="menu-link active">
+                <span></span> Dashboard
+            </a>
+
+            <a href="#projects" class="menu-link">
+                <span></span> All Projects
+            </a>
+
+            <a href="#monitoring" class="menu-link">
+                <span></span> Project Monitoring
+            </a>
+
+            <a href="#reports" class="menu-link">
+                <span></span> Reports
+            </a>
+
+            <a href="#settings" class="menu-link">
+                <span></span> Settings
+            </a>
+
+            <div class="sidebar-footer">
+                <p>Rural Development Bureau</p>
+                <small>RDB-PIFS System</small>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="main-content" id="dashboard">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome to the RDB Project Information and Filtering System.</p>
+                </div>
+
+                <button class="primary-button" id="addProjectButton" type="button">
+                + Add Project
+            </button>
+            </div>
+
+            <!-- Summary Cards -->
+            <section class="summary-cards">
+
+                <article class="summary-card">
+                    <div class="card-icon blue"></div>
+                    <div>
+                        <p>Total Projects</p>
+                        <h2 id="totalProjects">120</h2>
+                        <small>Projects registered</small>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon green"></div>
+                    <div>
+                        <p>Completed Projects</p>
+                        <h2 id="completedProjects">68</h2>
+                        <small>Successfully completed</small>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon orange"></div>
+                    <div>
+                        <p>Ongoing Projects</p>
+                        <h2 id="ongoingProjects">37</h2>
+                        <small>Currently in progress</small>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon red"></div>
+                    <div>
+                        <p>Pending Projects</p>
+                        <h2 id="pendingProjects">15</h2>
+                        <small>Awaiting action</small>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Projects Section -->
+            <section class="project-section" id="projects">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Projects</h2>
+                        <p>View and search registered projects.</p>
+                    </div>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="filter-bar">
+
+                    <input
+                        type="search"
+                        id="projectSearch"
+                        placeholder="Search project name..."
+                        aria-label="Search project name"
+                    >
+
+                    <select id="statusFilter" aria-label="Filter by status">
+                        <option value="all">All Statuses</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+
+                </div>
+
+                <!-- Project Table -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project ID</th>
+                                <th>Project Name</th>
+                                <th>Location</th>
+                                <th>Budget (LKR)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="projectTableBody">
+
+                            <tr>
+                                <td>RDB001</td>
+                                <td>Rural Road Development</td>
+                                <td>Gampaha</td>
+                                <td>2,500,000</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>RDB002</td>
+                                <td>Community Water Supply</td>
+                                <td>Kurunegala</td>
+                                <td>1,800,000</td>
+                                <td><span class="status ongoing">Ongoing</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>RDB003</td>
+                                <td>Village Irrigation Project</td>
+                                <td>Anuradhapura</td>
+                                <td>3,200,000</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>RDB004</td>
+                                <td>Community Hall Construction</td>
+                                <td>Matara</td>
+                                <td>4,000,000</td>
+                                <td><span class="status ongoing">Ongoing</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="table-note">
+                    Showing sample project information.
+                </p>
+
+            </section>
+
+          
+           
+    </div>
+
+    <!-- JavaScript file -->
+    <script src="dashboard.js"></script>
+
+>>>>>>> df5dd00aa051ae69dc090580882ac9b2e7d2adc4
 </body>
 </html>

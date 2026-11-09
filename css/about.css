@@ -1,0 +1,466 @@
+
+/* =====================================
+   RDB-PIFS ABOUT PAGE
+   Navy Blue, White and Light Grey Theme
+===================================== */
+
+:root {
+    --navy: #1b4165;
+    --navy-dark: #080d4b;
+    --brown: #8a6848;
+    --cream: #f2ede6;
+    --page-bg: #f3f5fc;
+    --white: #ffffff;
+    --text: #292929;
+    --muted: #666666;
+}
+
+/* General page */
+body {
+    margin: 0;
+    font-family: Georgia, "Arial", sansserif;
+    background: var(--page-bg);
+    color: var(--text);
+}
+
+main {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =====================================
+   INTRODUCTION BANNER
+===================================== */
+
+.about-hero {
+    background: var(--navy-dark);
+    color: var(--white);
+    text-align: center;
+    min-height: 220px;
+    padding: 42px 5% 65px;
+    box-sizing: border-box;
+}
+
+.hero-label {
+    display: inline-block;
+    background: #848bbe;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 6px 13px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.about-hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(28px, 4vw, 38px);
+    color: #ffffff;
+}
+
+.about-hero p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #f1f1ff;
+}
+
+/* =====================================
+   VISION AND MISSION CARDS
+===================================== */
+
+.overview-section {
+    padding: 0 5%;
+    margin-top: -38px;
+    position: relative;
+    z-index: 2;
+}
+
+.overview-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.overview-card {
+    background: var(--white);
+    border-radius: 13px;
+    padding: 24px 25px;
+    min-height: 130px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+.card-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--brown);
+    color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.overview-card h2 {
+    font-size: 18px;
+    color: var(--brown);
+    margin: 0 0 10px;
+}
+
+.overview-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    color: #333333;
+}
+
+/* =====================================
+   SECTION HEADINGS
+===================================== */
+
+.section-title {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 29px);
+    color: #151515;
+    margin: 0 auto 30px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 3px;
+    background: var(--brown);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* =====================================
+   OFFICER DETAILS SECTION
+===================================== */
+
+.officers-section {
+    padding: 45px 5% 40px;
+}
+
+/* Officer card grid */
+.officer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* Main officer card */
+.officer-card {
+    background: var(--cream);
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Navy image background */
+.officer-image-section {
+    background: var(--navy);
+    height: 218px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Circular officer photograph */
+.officer-img {
+    width: 188px;
+    height: 188px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+/* Image hover effect */
+.officer-card:hover .officer-img {
+    transform: scale(1.04);
+}
+
+/* Cream information section */
+.officer-details {
+    background: var(--cream);
+    padding: 19px 15px 16px;
+    min-height: 205px;
+    box-sizing: border-box;
+}
+
+/* Officer name */
+.officer-details h3 {
+    color: var(--navy);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 15px;
+    line-height: 1.3;
+}
+
+/* Officer designation and contact details */
+.officer-details p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+    margin: 0 0 10px;
+    overflow-wrap: anywhere;
+}
+
+/* Officer designation */
+.officer-details .role {
+    color: var(--black);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Officer email links */
+.officer-details a {
+    color: #4382c9;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.officer-details a:hover {
+    color: var(--brown);
+    text-decoration: underline;
+}
+
+/* Card hover effect */
+.officer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
+   RIGHT TO INFORMATION OFFICERS
+===================================== */
+
+.rti-section {
+    padding: 35px 5% 55px;
+}
+
+.rti-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.rti-card {
+    background: #b4c7f1;
+    border: 1px solid #e8e2dc;
+    border-radius: 13px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.rti-label {
+    display: block;
+    color: var(--brown);
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.rti-card h3 {
+    color: var(--navy-dark);
+    font-size: 17px;
+    margin: 0 0 12px;
+}
+
+.rti-card p {
+    font-family: Arial, sans-serif;
+    font-size: 15x;
+    line-height: 1.7;
+    color: #1e1616;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.detail-icon {
+    display: inline-block;
+    color: var(--blue);
+    width: 20px;
+    font-weight: bold;
+}
+
+.rti-card a {
+    color: var(--brown);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.site-footer {
+    background: var(--navy-dark);
+    color: #ffffff;
+    padding: 35px 5% 20px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a,
+.footer-column address {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #ffffff;
+    text-decoration: none;
+    font-style: normal;
+    overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: #d8c3a8;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 25px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #dddddd;
+}
+
+/* =====================================
+   TABLET RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 900px) {
+
+    .officer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        gap: 20px;
+    }
+}
+
+/* =====================================
+   MOBILE RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 620px) {
+
+    .about-hero {
+        padding: 35px 6% 60px;
+    }
+
+    .about-hero p {
+        font-size: 12px;
+    }
+
+    .overview-grid,
+    .rti-grid,
+    .officer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-section {
+        margin-top: -30px;
+    }
+
+    .overview-card {
+        padding: 22px;
+    }
+
+    .officers-section {
+        padding-top: 40px;
+    }
+
+    .officer-image-section {
+        height: 218px;
+    }
+
+    .officer-img {
+        width: 188px;
+        height: 188px;
+    }
+
+    .officer-details {
+        padding: 19px 15px 16px;
+    }
+
+    .officer-details h3 {
+        font-size: 22px;
+    }
+
+    .officer-details p {
+        font-size: 16px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section-title {
+        font-size: 23px;
+    }
+
+    .rti-section {
+        padding-bottom: 40px;
+    }
+}

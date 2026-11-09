@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDB-PIFS | District</title>
+
+    <link rel="stylesheet" href="css/style.css">             <!-- header + footer -->
+    <link rel="stylesheet" href="css/district-summary.css">  <!-- this page -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/district-summary.js" defer></script>
+</head>
+<body>
+
+<!-- ===== HEADER (same as dashboard.html) ===== -->
+<header class="site-header">
+    <a class="brand" href="index.html">
+        <img class="brand-logo" src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau logo">
+        <span>RDB-PIFS</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav" id="siteNav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="districts.html" class="active">District Summary</a>
+        <a href="dashboard.html#progress-charts">Progress</a>
+        <a href="dashboard.html#concept-summary">Concept Approval</a>
+        <a href="dashboard.html#implementation-summary">Implementation</a>
+        <a href="all-projects.html">All Projects</a>
+        <a href="add-project.html">+ Add Project</a>
+        <a href="login.html" class="btn-login" data-logout>Logout</a>
+    </nav>
+</header>
+
+<main class="dpage">
+
+    <!-- ===== BACK BUTTON (goes to the 25 districts page) ===== -->
+    <a class="btn-back" href="districts.html">&larr; Back to all districts</a>
+
+    <!-- ===== 3 BUTTONS ===== -->
+    <div class="top-buttons">
+        <button type="button" class="tb tb-approved" id="btnApproved" aria-pressed="true">All approved projects</button>
+        <button type="button" class="tb tb-summary" id="btnSummary" aria-pressed="false">District summary</button>
+        <a class="tb tb-add" id="btnAdd" href="add-project.html">Add project</a>
+    </div>
+
+    <h1 class="dname"><span id="distEn"></span></h1>
+
+    <!-- =====================================================
+         VIEW 1: ALL APPROVED PROJECTS (Format 02)
+         ===================================================== -->
+    <section id="viewApproved" class="card-table">
+
+        <div class="sheet-info">
+            <p><b>Programme</b> - 'Prajashakthi' National Movement to Eradicate Poverty</p>
+            <p><b>Expenditure Head</b> - 124-2-05-001-2202</p>
+            <p><b>District</b> - <span class="distSi"></span></p>
+            <p class="note">See the instruction sheet for criteria related to reporting physical progress.</p>
+            <p class="sheet-title">Projects approved under Format 02 of Guideline 1/2026</p>
+        </div>
+
+        <div class="table-scroll">
+            <table class="sheet wide">
+                <thead>
+                    <tr>
+                        <th rowspan="2">S/N</th>
+                        <th rowspan="2">Date of the Project Approved</th>
+                        <th rowspan="2">District</th>
+                        <th rowspan="2">DS Division</th>
+                        <th rowspan="2">CDC</th>
+                        <th rowspan="2">Project Name</th>
+                        <th rowspan="2">Development Approach</th>
+                        <th rowspan="2">Sector</th>
+                        <th rowspan="2">Sub Sector</th>
+                        <th colspan="2">Purchasing of Machinery, Plants and Animals</th>
+                        <th rowspan="2">Main Product/s</th>
+                        <th rowspan="2">Contribution to Production Economy (No of Units)</th>
+                        <th colspan="2">No of Beneficiaries</th>
+                        <th rowspan="2">Approved Allocation (Rs.)</th>
+                        <th rowspan="2">Physical Progress (%)</th>
+                        <th colspan="5">Financial Progress (Rs.)</th>
+                        <th rowspan="2">Remarks</th>
+                        <th rowspan="2">Format 02</th>
+                    </tr>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Direct Beneficiaries</th>
+                        <th>Indirect Beneficiaries</th>
+                        <th>Mobilization Advance</th>
+                        <th>First Payment</th>
+                        <th>Second Payment</th>
+                        <th>Third Payment</th>
+                        <th>Final Payment</th>
+                    </tr>
+                    <tr class="numrow" id="numRow"></tr>
+                </thead>
+                <tbody id="approvedBody"></tbody>
+            </table>
+        </div>
+        <p class="empty" id="emptyApproved" hidden>No approved projects saved for this district yet.</p>
+    </section>
+
+    <!-- =====================================================
+         VIEW 2: DISTRICT SUMMARY (DS division summary)
+         ===================================================== -->
+    <section id="viewSummary" class="card-table" hidden>
+
+        <div class="sheet-info center">
+            <p class="sheet-title">'Prajashakthi' National Movement to Eradicate Poverty - Implementation of Development Projects - 2026</p>
+            <p>Progress as at <span id="asAt2"></span></p>
+            <p><b>District</b> - <span class="distSi"></span></p>
+        </div>
+
+        <div class="table-scroll">
+            <table class="sheet wide">
+                <thead>
+                    <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">DS Division</th>
+                        <th rowspan="2">No. of Approved Projects</th>
+                        <th rowspan="2">No. of Direct Beneficiaries</th>
+                        <th rowspan="2">Approved Allocation (Rs.)</th>
+                        <th colspan="10">Physical Stage</th>
+                        <th rowspan="2">Physical Progress (%)</th>
+                        <th colspan="5">Financial Progress</th>
+                        <th rowspan="2">Financial Progress (%)</th>
+                    </tr>
+                    <tr>
+                        <th>A</th><th>B1</th><th>B2</th><th>B3</th><th>B4</th>
+                        <th>C</th><th>D</th><th>E</th><th>F</th><th>G</th>
+                        <th>Mobilization Advance (Rs.)</th>
+                        <th>First Payment (Rs.)</th>
+                        <th>Second Payment (Rs.)</th>
+                        <th>Third Payment (Rs.)</th>
+                        <th>Final Payment (Rs.)</th>
+                    </tr>
+                </thead>
+                <tbody id="summaryBody"></tbody>
+            </table>
+        </div>
+        <p class="empty" id="emptySummary" hidden>No approved projects saved for this district yet.</p>
+    </section>
+
+</main>
+
+<!-- ===== FOOTER (same as dashboard.html) ===== -->
+<footer class="site-footer">
+    <p class="footer-bottom">&copy; <span id="year"></span> Rural Development Bureau. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

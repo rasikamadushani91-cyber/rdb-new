@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDB-PIFS | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/auth.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        <img class="brand-logo" src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg" alt="Rural Development Bureau logo">
+        <span>RDB-PIFS</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav" id="siteNav">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        
+        <a href="districts.html">District Summary</a>
+        <a href="#progress-charts">Progress</a>
+        <a href="#concept-summary">Concept Approval</a>
+        <a href="#implementation-summary">Implementation</a>
+        <a href="all-projects.html">All Projects</a>
+        <a href="add-project.html">+ Add Project</a>
+        
+        <a href="login.html" class="btn-login" data-logout>Logout</a>
+    </nav>
+</header>
+
+<main class="dash-main">
+    <h1>Dashboard</h1>
+
+    <section class="summary-cards">
+        <div class="card"><span>Total projects</span><strong id="totalProjects">0</strong></div>
+        <div class="card"><span>Pending</span><strong id="pendingProjects">0</strong></div>
+        <div class="card"><span>Ongoing</span><strong id="ongoingProjects">0</strong></div>
+        <div class="card"><span>Completed</span><strong id="completedProjects">0</strong></div>
+        <div class="card"><span>Rejected</span><strong id="rejectedProjects">0</strong></div>
+    </section>
+
+    <section class="panel" id="progress-charts">
+        <h2>Project progress</h2>
+        <p class="muted">Based on the saved project records.</p>
+
+        <div class="overall">
+            <div class="overall-head"><span>Average progress of all projects</span><strong id="avgProgress">0%</strong></div>
+            <div class="bar-track big"><div class="bar-fill fill-progress" id="avgProgressBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="chart-grid">
+            <div>
+                <h3>Projects by status</h3>
+                <div id="statusChart" class="chart"></div>
+            </div>
+            <div>
+                <h3>Status by district</h3>
+                <div id="districtChart" class="chart"></div>
+                <div class="legend">
+                    <span><i class="fill-pending"></i>Pending</span><span><i class="fill-ongoing"></i>Ongoing</span>
+                    <span><i class="fill-completed"></i>Completed</span><span><i class="fill-rejected"></i>Rejected</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>Progress of each project (latest 10)</h3>
+        <div id="projectProgressChart" class="chart"></div>
+    </section>
+
+    <section class="panel" id="concept-summary">
+        <h2>Concept approval (Annexure 01)</h2>
+        <div class="totals">
+            <div><span>DS proposals received</span><strong data-sum="receivedDS">0</strong></div>
+            <div><span>GN proposals received</span><strong data-sum="receivedGN">0</strong></div>
+            <div><span>GN approved</span><strong data-sum="approvedGN">0</strong></div>
+            <div><span>GN rejected</span><strong data-sum="rejectedGN">0</strong></div>
+            <div><span>Estimated cost (LKR)</span><strong data-sum="estimatedCost">0</strong></div>
+        </div>
+    </section>
+
+    <section class="panel" id="implementation-summary">
+        <h2>Approved to implement (Annexure 02)</h2>
+        <div class="totals">
+            <div><span>Projects approved</span><strong data-sum="approvedProjects">0</strong></div>
+            <div><span>Direct beneficiaries</span><strong data-sum="beneficiaries">0</strong></div>
+            <div><span>Approved cost (LKR)</span><strong data-sum="approvedCost">0</strong></div>
+            <div><span>Approved allocation (LKR)</span><strong data-sum="approvedAllocation">0</strong></div>
+            <div><span>CDCs established</span><strong data-sum="cdcsEstablished">0</strong></div>
+        </div>
+    </section>
+
+    <section class="panel table-panel" id="division-summary">
+        <div class="table-heading">
+            <div>
+                <h2>Project records</h2>
+                <p id="recordCount" class="muted"></p>
+            </div>
+            <div class="table-buttons">
+                <button type="button" id="refreshBtn" class="btn btn-light">Refresh</button>
+                <button type="button" id="exportBtn" class="btn btn-success">Export CSV</button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-field">
+                <label for="searchInput">Search</label>
+                <input id="searchInput" placeholder="Search any column">
+            </div>
+            <div class="filter-field">
+                <label for="districtFilter">District</label>
+                <select id="districtFilter"><option value="">All Districts</option></select>
+            </div>
+            <div class="filter-field">
+                <label for="statusFilter">Status</label>
+                <select id="statusFilter">
+                    <option value="">All Statuses</option>
+                    <option>Pending</option>
+                    <option>Ongoing</option>
+                    <option>Completed</option>
+                    <option>Rejected</option>
+                </select>
+            </div>
+            <button type="button" id="clearFilters" class="btn btn-light">Clear Filters</button>
+        </div>
+
+        <div class="table-scroll">
+            <table>
+                <thead id="tableHead"></thead>
+                <tbody id="projectsTableBody"></tbody>
+            </table>
+        </div>
+        <p id="emptyState" class="muted" hidden>No matching projects. <a href="add-project.html">Add a project</a>.</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="all-projects.html">Projects</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="https://rdb.gov.lk" target="_blank" rel="noopener">Rural Development Bureau website</a></li>
+                <li><a href="https://www.gov.lk" target="_blank" rel="noopener">Sri Lanka Government portal</a></li>
+                <li><a href="about.html#rti">Right to Information officers</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Contact Information</h3>
+            <address>
+                Rural Development Bureau,<br>
+                9th Floor, Sethsiripaya Stage II<br>
+                Tel: +94 112887831<br>
+                Email: <a href="mailto:dir.rdb.mrsc@sltnet.lk">dir.rdb.mrsc@sltnet.lk</a>
+            </address>
+        </div>
+    </div>
+    <p class="footer-bottom">&copy; <span id="year"></span> Rural Development Bureau. All rights reserved.</p>
+</footer>
+</body>
+</html>

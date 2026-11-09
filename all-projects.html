@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RDB-PIFS | All Projects</title>
+
+    <link rel="stylesheet" href="css/add-project.css">
+    <link rel="stylesheet" href="css/all-projects.css">
+
+    <script src="js/auth.js"></script>
+    <script src="js/all-projects.js" defer></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="top-header">
+        <a class="brand" href="index.html">
+            <img
+                src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg"
+                alt="Rural Development Bureau Logo"
+            >
+            <span>
+                <strong>RDB-PIFS</strong>
+                <small>Project Information System</small>
+            </span>
+        </a>
+
+        <div class="header-actions">
+            <a href="dashboard.html" class="back-link">← Dashboard</a>
+
+            <a href="add-project.html" class="btn btn-add">
+                + Add Project
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="projects-container">
+
+        <section class="report-section">
+
+            <div class="report-heading">
+                <div>
+                    <h2>All Project Records & Reports</h2>
+                    <p>Filter saved records and export the matching results.</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="exportReport"
+                    class="btn btn-success"
+                >
+                    Export CSV Report
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-grid">
+
+                <div class="field">
+                    <label for="searchProjects">Search</label>
+                    <input
+                        type="text"
+                        id="searchProjects"
+                        placeholder="Project name or ID"
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="filterDistrict">District</label>
+                    <select id="filterDistrict">
+                        <option value="">All Districts</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="filterStatus">Status</label>
+                    <select id="filterStatus">
+                        <option value="">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="filterFrom">From date</label>
+                    <input type="date" id="filterFrom">
+                </div>
+
+                <div class="field">
+                    <label for="filterTo">To date</label>
+                    <input type="date" id="filterTo">
+                </div>
+
+                <div class="field filter-button-field">
+                    <label>&nbsp;</label>
+                    <button
+                        type="button"
+                        id="clearFilters"
+                        class="btn btn-light"
+                    >
+                        Clear Filters
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Project Table -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>District</th>
+                            <th>DS Division</th>
+                            <th>GN Division</th>
+                            <th>Status</th>
+                            <th>Estimated Cost (LKR)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="projectTableBody">
+                        <!-- Project records loaded using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="recordCount" class="record-count">
+                No saved records.
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

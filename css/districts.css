@@ -1,0 +1,385 @@
+
+/* =====================================================
+   RDB-PIFS | DISTRICT SUMMARY
+   Professional Teal Design
+===================================================== */
+
+/* =====================================================
+   PART 1: BASIC SETTINGS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #0d0545;
+    --teal: #0F8B83;
+    --teal-dark: #08736D;
+    --teal-light: #DDF4F0;
+    --background: #F3F6FA;
+    --white: #FFFFFF;
+    --text: #334155;
+    --heading: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+
+    --shadow:
+        0 3px 10px rgba(15, 23, 42, 0.07);
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =====================================================
+   PART 2: HEADER
+===================================================== */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 92px;
+    padding: 12px 5%;
+
+    background: var(--navy);
+    color: var(--white);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 3px 12px rgba(13, 5, 69, 0.15);
+}
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--white);
+    text-decoration: none;
+
+    font-weight: 700;
+    font-size: 19px;
+
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+
+    background: var(--white);
+    border-radius: 8px;
+    padding: 3px;
+}
+
+/* Navigation */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px;
+
+    margin-left: auto;
+}
+
+.site-nav a {
+    color: var(--white);
+    text-decoration: none;
+
+    padding: 9px 11px;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    transition: background 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+    background: #ffffff26;
+}
+
+/* Logout Button */
+
+.site-nav .btn-login {
+    background: #8FE3C4;
+    color: #06352A;
+    font-weight: 700;
+}
+
+.site-nav .btn-login:hover {
+    background: #6DD6B0;
+    color: #06352A;
+}
+
+/* Mobile Navigation Button */
+
+.nav-toggle {
+    display: none;
+    margin-left: auto;
+
+    background: transparent;
+    border: 1px solid #ffffff88;
+    color: var(--white);
+
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 5px 13px;
+
+    cursor: pointer;
+}
+
+/* =====================================================
+   PART 3: PAGE CONTENT
+===================================================== */
+
+.dist-page {
+    width: min(1150px, 94%);
+    margin: 0 auto;
+    padding: 35px 0 65px;
+}
+
+/* =====================================================
+   PART 4: DASHBOARD BUTTON
+===================================================== */
+
+.btn-dash {
+    display: block;
+    width: fit-content;
+
+    margin: 0 0 35px auto;
+    padding: 10px 25px;
+
+    background: var(--white);
+    color: var(--navy);
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    box-shadow: 0 3px 0 #D5DEE9,
+                0 5px 10px rgba(15, 23, 42, 0.06);
+
+    transition: all 0.2s ease;
+}
+
+.btn-dash:hover {
+    background: var(--navy);
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 0 #08032D,
+                0 8px 14px rgba(13, 5, 69, 0.15);
+}
+
+.btn-dash:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #08032D;
+}
+
+/* =====================================================
+   PART 5: DISTRICT GRID
+===================================================== */
+
+.district-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px 18px;
+}
+
+/* =====================================================
+   PART 6: TEAL PILL DISTRICT BUTTONS
+===================================================== */
+
+.district-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 65px;
+    padding: 12px 16px;
+
+    background: linear-gradient(
+        145deg,
+        #16A69B,
+        #0F8B83
+    );
+
+    color: var(--white);
+
+    border: 1px solid #0B8179;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    /* 3D button effect */
+    box-shadow:
+        0 4px 0 #086B65,
+        0 6px 12px rgba(15, 139, 131, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Hover Effect */
+
+.district-btn:hover,
+.district-btn:focus-visible {
+
+    background: linear-gradient(
+        145deg,
+        #0D8179,
+        #086B65
+    );
+
+    color: var(--white);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 0 #05534F,
+        0 10px 16px rgba(15, 139, 131, 0.22);
+
+    outline: none;
+}
+
+/* Click Effect */
+
+.district-btn:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 #05534F,
+        0 3px 6px rgba(15, 139, 131, 0.12);
+}
+
+/* Keyboard Accessibility */
+
+.district-btn:focus-visible {
+    outline: 3px solid #80CBC4;
+    outline-offset: 4px;
+}
+
+/* =====================================================
+   PART 7: RESPONSIVE DESIGN
+===================================================== */
+
+/* Laptops and small desktops */
+
+@media (max-width: 1100px) {
+
+    .district-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 980px) {
+
+    .site-header {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .site-nav {
+        display: none;
+
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+
+        margin-left: 0;
+        padding-top: 10px;
+    }
+
+    .site-nav.open {
+        display: flex;
+    }
+
+    .site-nav a {
+        padding: 11px 14px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .district-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 14px;
+    }
+}
+
+/* Mobile phones */
+
+@media (max-width: 520px) {
+
+    .site-header {
+        padding: 12px 4%;
+    }
+
+    .dist-page {
+        padding-top: 25px;
+    }
+
+    .district-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 12px;
+    }
+
+    .district-btn {
+        min-height: 58px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .btn-dash {
+        font-size: 12px;
+        padding: 9px 20px;
+    }
+}
+
+/* =====================================================
+   PART 8: REDUCED MOTION ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .district-btn,
+    .btn-dash,
+    .site-nav a {
+        transition: none;
+    }
+}

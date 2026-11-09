@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDB-PIFS | Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+
+<main class="login-card" id="card">
+    <header class="card-top">
+        <h1 id="pageTitle">Login</h1>
+        <a class="pill-outline" href="index.html">&larr; Home</a>
+    </header>
+
+    <div class="card-body">
+        <div class="forms">
+
+            <!-- ===== TABS: switch between Log in and Create account ===== -->
+            <div class="tabs">
+                <button type="button" class="tab on" data-show="login">Log in</button>
+                <button type="button" class="tab" data-show="signup">Create account</button>
+            </div>
+
+            <!-- ===== PART 1: LOGIN FORM (admin and user) ===== -->
+            <form id="loginForm" class="login-form" novalidate>
+                <div class="form-head">
+                    <h2>Login to your account</h2>
+                    <span class="system-name">RDB-PIFS</span>
+                </div>
+
+                <div class="input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+                    <input id="loginEmail" type="email" placeholder="Email"
+                           autocomplete="username" aria-label="Email" required>
+                </div>
+
+                <div class="input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                    <input id="loginPassword" type="password" placeholder="Password"
+                           autocomplete="current-password" aria-label="Password" required>
+                    <button type="button" class="eye" aria-label="Show password">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+
+                <p id="loginMessage" class="message" role="alert"></p>
+
+                <div class="form-actions">
+                    <a href="#" id="forgotLink" class="forgot">Forgot password?</a>
+                    <button type="submit" class="btn-login">Log in</button>
+                </div>
+            </form>
+
+            <!-- ===== PART 2: CREATE ACCOUNT FORM (user accounts only) ===== -->
+            <form id="signupForm" class="login-form" novalidate hidden>
+                <div class="form-head">
+                    <h2>Create a user account</h2>
+                    <span class="system-name">RDB-PIFS</span>
+                </div>
+
+                <!-- Position -->
+                <label for="position">Position</label>
+                <select id="position" class="plain" required>
+                    <option value="">Select your position</option>
+
+                    <optgroup label="Ministry level">
+                        <option>Secretary to the Ministry</option>
+                        <option>Additional Secretary</option>
+                        <option>Director General</option>
+                        <option>Director</option>
+                        <option>Deputy Director</option>
+                        <option>Assistant Director</option>
+                        <option>Senior Assistant Secretary</option>
+                        <option>Assistant Secretary</option>
+                        <option>Chief Accountant</option>
+                        <option>Accountant</option>
+                        <option>Planning Officer</option>
+                        <option>Monitoring &amp; Evaluation Officer</option>
+                        <option>Programme Officer</option>
+                        <option>Development Officer</option>
+                        <option>IT Officer</option>
+                        <option>Management Assistant</option>
+                    </optgroup>
+
+                    <optgroup label="Divisional Secretariat level">
+                        <option>Divisional Secretary</option>
+                        <option>Additional Divisional Secretary</option>
+                        <option>Assistant Divisional Secretary</option>
+                        <option>Divisional Planning Officer</option>
+                        <option>Divisional Accountant</option>
+                        <option>Samurdhi Development Officer</option>
+                        <option>Divisional Development Officer</option>
+                        <option>Technical Officer</option>
+                        <option>Divisional Management Assistant</option>
+                    </optgroup>
+
+                    <option>Other</option>
+                </select>
+
+                <!-- First and last name side by side -->
+                <div class="row2">
+                    <div>
+                        <label for="firstName">First name</label>
+                        <input id="firstName" class="plain" type="text" autocomplete="given-name" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Last name</label>
+                        <input id="lastName" class="plain" type="text" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <!-- Ministry and workplace -->
+                <label for="ministry">Ministry / institution</label>
+                <select id="ministry" class="plain" required>
+                    <option value="">Select ministry</option>
+                    <option>Ministry of Rural Development, Social Security and Community Empowerment</option>
+                    <option>Department of Samurdhi Development</option>
+                    <option>Rural Development and Research Institute</option>
+                    <option>Rural Development Bureau</option>
+                    <option>Ministry of Public Administration</option>
+                    <option>Ministry of Home Affairs</option>
+                    <option>Ministry of Finance</option>
+                    <option>Export Development Board</option>
+                    <option>National Secretariat for Community Empowerment</option>
+                    <option>Divisional Secretariat</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="organization">Organization / work place</label>
+                <input id="organization" class="plain" type="text"
+                       placeholder="e.g. Divisional Secretariat, Matara" required>
+
+                <!-- Email -->
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" class="plain" type="email" autocomplete="email" required>
+
+                <!-- Password with strength checks -->
+                <label for="signupPassword">Password</label>
+                <div class="input-wrap">
+                    <input id="signupPassword" type="password" autocomplete="new-password" required>
+                    <button type="button" class="eye" aria-label="Show password">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+
+                <div class="meter"><i id="meterBar"></i></div>
+                <small id="meterText" class="hint">Password strength</small>
+
+                <ul id="rules" class="rules">
+                    <li data-rule="len">10+ characters</li>
+                    <li data-rule="upper">Capital letter</li>
+                    <li data-rule="lower">Small letter</li>
+                    <li data-rule="num">Number</li>
+                    <li data-rule="sym">Symbol (! @ # $ ...)</li>
+                </ul>
+
+                <button type="button" id="suggestBtn" class="link-btn">Suggest a strong password</button>
+
+                <label for="confirmPassword">Confirm password</label>
+                <div class="input-wrap">
+                    <input id="confirmPassword" type="password" autocomplete="new-password" required>
+                    <button type="button" class="eye" aria-label="Show password">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+
+                <p id="signupMessage" class="message" role="alert"></p>
+
+                <div class="form-actions">
+                    <span></span>
+                    <button type="submit" class="btn-login">Create account</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right: illustration (unchanged) -->
+        <div class="illustration" aria-hidden="true">
+            <svg viewBox="0 0 380 300">
+                <ellipse cx="200" cy="268" rx="130" ry="18" fill="#d6e4f2"/>
+                <g transform="rotate(-18 190 120)">
+                    <circle cx="105" cy="120" r="34" fill="none" stroke="#a9c8e8" stroke-width="16"/>
+                    <rect x="135" y="112" width="190" height="16" rx="8" fill="#a9c8e8"/>
+                    <rect x="270" y="128" width="12" height="22" rx="3" fill="#a9c8e8"/>
+                    <rect x="292" y="128" width="12" height="30" rx="3" fill="#a9c8e8"/>
+                </g>
+                <path d="M255 170v-24a45 45 0 0 1 90 0v24" fill="none" stroke="#3b7dd8" stroke-width="16" stroke-linecap="round"/>
+                <rect x="235" y="165" width="130" height="95" rx="16" fill="#5aa0ec"/>
+                <rect x="235" y="225" width="130" height="35" rx="14" fill="#1e4d92"/>
+                <circle cx="300" cy="205" r="9" fill="#e8f2ff"/>
+                <circle cx="70" cy="95" r="17" fill="#f2c6a0"/>
+                <path d="M52 92a18 18 0 0 1 36-4c-8-6-24-6-36 4z" fill="#1e3a8a"/>
+                <rect x="52" y="112" width="36" height="52" rx="10" fill="#ff2e93"/>
+                <rect x="55" y="164" width="30" height="62" rx="6" fill="#1e3a8a"/>
+                <rect x="52" y="226" width="14" height="10" rx="4" fill="#0f2a63"/>
+                <rect x="74" y="226" width="14" height="10" rx="4" fill="#0f2a63"/>
+                <rect x="30" y="30" width="86" height="40" rx="10" fill="#dbe9f8"/>
+                <rect x="40" y="42" width="50" height="6" rx="3" fill="#a9c8e8"/>
+                <rect x="40" y="54" width="34" height="6" rx="3" fill="#a9c8e8"/>
+                <rect x="300" y="42" width="50" height="34" rx="9" fill="#ff2e93"/>
+                <circle cx="313" cy="59" r="3.5" fill="#fff"/><circle cx="325" cy="59" r="3.5" fill="#fff"/><circle cx="337" cy="59" r="3.5" fill="#fff"/>
+                <circle cx="352" cy="140" r="7" fill="none" stroke="#3b7dd8" stroke-width="3"/>
+                <circle cx="150" cy="30" r="9" fill="none" stroke="#a9c8e8" stroke-width="3"/>
+            </svg>
+        </div>
+    </div>
+
+    <footer class="card-bottom">
+        <span>&copy; <span id="year"></span> Rural Development Bureau</span>
+        <span class="dots"><i></i><i></i><i></i></span>
+    </footer>
+</main>
+
+</body>
+</html>

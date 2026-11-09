@@ -1,0 +1,554 @@
+/* =====================================================
+   RDB-PIFS main stylesheet (style.css)
+   Same rules as before, one property per line,
+   with simple comments added.
+   ===================================================== */
+
+/* ---------- Colour variables (use with var(--name)) ---------- */
+:root {
+    --navy: #060c36;        /* main dark blue */
+    --navy-deep: #050a45;   /* very dark blue (footer) */
+    --teal: #0a6b55;        /* green band colour */
+    --mint: #8fe3c4;        /* light green (buttons) */
+    --ink: #10213a;         /* main text colour */
+    --muted: #5b6b82;       /* grey text */
+    --paper: #f4f7fb;       /* page background */
+    --line: #dde4ee;        /* border lines */
+}
+
+/* ---------- Basic reset ---------- */
+* {
+    box-sizing: border-box; /* padding stays inside the width */
+}
+
+body {
+    margin: 0;                                     /* remove default space */
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    color: var(--ink);                             /* text colour */
+    background: var(--paper);                      /* page colour */
+    line-height: 1.6;                              /* space between lines */
+}
+
+a {
+    color: inherit;         /* links use the parent text colour */
+}
+
+
+/* =====================================================
+   HEADER (top blue bar)
+   ===================================================== */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 5%;
+    background: var(--navy);
+    color: #fff;
+    position: sticky;           /* stays at the top while scrolling */
+    top: 0;                     /* stick to the very top of the screen */
+    z-index: 100;               /* stay above all page content */
+    box-shadow: 0 2px 10px #0004;   /* soft shadow under the header (optional) */
+}
+
+/* Logo + name on the left */
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;      /* no underline */
+    font-weight: 600;
+}
+
+/* Round-corner logo box */
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;        /* keep the full logo visible */
+    background: #fff;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+/* Menu on the right */
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;          /* push menu to the right */
+    flex-wrap: wrap;            /* wrap on small screens */
+}
+
+/* Menu links and menu buttons */
+.site-nav a,
+.site-nav .nav-btn {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: none;
+    border: 0;
+    font: inherit;              /* same font as the page */
+    cursor: pointer;            /* hand cursor */
+}
+
+/* Hover and current page */
+.site-nav a:hover,
+.site-nav a.active,
+.site-nav .nav-btn:hover {
+    background: #ffffff26;      /* light see-through white */
+}
+
+/* Login button (mint colour) */
+.site-nav .btn-login {
+    background: var(--mint);
+    color: #06352a;
+    font-weight: 700;
+}
+
+.site-nav .btn-login:hover {
+    background: #b4f0d9;
+}
+
+/* Mobile menu button (hidden on big screens) */
+.nav-toggle {
+    display: none;
+    margin-left: auto;
+    background: none;
+    border: 1px solid #ffffff88;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+/* Drop-down menu */
+.dropdown {
+    position: relative;         /* menu is placed under this box */
+}
+
+.dropdown-menu {
+    display: none;              /* hidden until hover */
+    position: absolute;
+    top: 100%;                  /* just below the button */
+    left: 0;
+    min-width: 190px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 10px 25px #0003;
+}
+
+/* Show menu on hover or keyboard focus */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: var(--ink);
+    padding: 9px 12px;
+}
+
+.dropdown-menu a:hover {
+    background: #eef3f8;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-mint {
+    background: var(--mint);
+    color: #06352a;
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: #fff;
+}
+
+.btn-success {
+    background: #198754;
+    color: #fff;
+}
+
+.btn-light {
+    background: #e4eaf3;
+    color: #24364b;
+}
+
+
+/* =====================================================
+   HERO (big picture on the home page)
+   ===================================================== */
+.hero {
+    position: relative;
+    min-height: 62vh;           /* 62% of screen height */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(#4f9de0, #cfe8fb);  /* sky colour if no image */
+}
+
+/* Photo fills the whole hero */
+.hero img {
+    position: absolute;
+    inset: 0;                   /* top, right, bottom, left = 0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* crop to fit, no stretching */
+}
+
+/* Dark blue shade on the left so text is easy to read */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #0b1a7aa6, transparent 65%);
+}
+
+/* Text box on top of the image */
+.hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 48px 5%;
+    max-width: 680px;
+}
+
+.hero h1 {
+    margin: 0 0 16px;
+    font-size: clamp(34px, 6vw, 62px);   /* grows with screen size */
+    line-height: 1.05;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 2px 14px #000a;
+}
+
+.hero p {
+    margin: 0 0 24px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0 1px 8px #000a;
+    max-width: 46ch;
+}
+
+
+/* =====================================================
+   QUICK LINKS (green band with 3 boxes)
+   ===================================================== */
+.quick-links {
+    background: var(--teal);
+    padding: 44px 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 equal columns */
+    gap: 20px;
+}
+
+.tile {
+    display: block;
+    padding: 22px;
+    border: 1px solid #ffffff55;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    background: #ffffff14;
+}
+
+.tile:hover {
+    background: #ffffff26;
+}
+
+.tile h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.tile p {
+    margin: 0;
+    color: #d5f3e8;
+}
+
+
+/* =====================================================
+   SIMPLE PAGES (about, login)
+   ===================================================== */
+.page {
+    width: min(900px, 92%);     /* never wider than 900px */
+    margin: 40px auto;          /* centre on the page */
+}
+
+.page h1 {
+    color: var(--navy);
+}
+
+.page ul {
+    padding-left: 20px;
+}
+
+/* Login box */
+.login-card {
+    width: min(420px, 92%);
+    margin: 56px auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 24px #1e293b14;
+}
+
+.login-card h1 {
+    margin: 0 0 4px;
+    color: var(--navy);
+    font-size: 26px;
+}
+
+.login-card p {
+    margin: 0 0 18px;
+    color: var(--muted);
+}
+
+.login-card label {
+    display: block;
+    font-weight: 600;
+    margin: 14px 0 6px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.login-card .btn {
+    width: 100%;                /* full-width button */
+    margin-top: 20px;
+}
+
+/* Error message under the login button */
+#loginMessage {
+    margin: 12px 0 0;
+    color: #b91c1c;             /* red */
+    font-weight: 600;
+    min-height: 1.4em;          /* keeps space even when empty */
+}
+
+
+/* =====================================================
+   FOOTER (dark blue, 3 columns)
+   ===================================================== */
+.site-footer {
+    background: var(--navy-deep);
+    color: #e5e9f7;
+    padding: 44px 5% 0;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Column titles with a line under them */
+.site-footer h3 {
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ffffff44;
+    color: #fff;
+    font-size: 18px;
+}
+
+.site-footer ul {
+    list-style: none;           /* remove bullets */
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer li {
+    margin-bottom: 8px;
+}
+
+.site-footer a {
+    color: #cfd8ff;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.site-footer address {
+    font-style: normal;         /* address is normally italic */
+    line-height: 1.9;
+}
+
+/* Copyright line at the very bottom */
+.footer-bottom {
+    margin: 36px -5% 0;         /* negative margin = full width line */
+    padding: 16px 5%;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid #ffffff22;
+}
+
+/* Footer: 1 column on phones */
+@media (max-width: 760px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE (screens 760px wide or smaller)
+   ===================================================== */
+@media (max-width: 760px) {
+
+    .nav-toggle {
+        display: block;             /* show the menu button */
+    }
+
+    .site-nav {
+        display: none;              /* hide menu until opened */
+        width: 100%;
+        flex-direction: column;     /* stack links */
+        align-items: stretch;
+        margin-left: 0;
+    }
+
+    .site-nav.open {
+        display: flex;              /* shown when button is clicked */
+    }
+
+    .site-header {
+        flex-wrap: wrap;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr; /* 1 box per row */
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: block;
+        background: #ffffff14;
+        box-shadow: none;
+    }
+
+    .dropdown-menu a {
+        color: #fff;
+    }
+}
+
+/* Turn off animations for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+
+/* =====================================================
+   RELATED ORGANIZATIONS (About page)
+   ===================================================== */
+:root {
+    --brown: #7a5a3d;           /* brown accent */
+    --cream: #f2ede6;           /* cream background */
+}
+
+/* Cream band behind the whole section */
+.related {
+    background: var(--cream);
+    padding: 48px 5%;
+}
+
+/* Keep content centred, max 1100px wide */
+.related > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centred heading with brown underline */
+.section-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(22px, 3vw, 32px);
+    margin: 0 auto 30px;
+    color: #2b2622;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--brown);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* 4 cards per row */
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* One organization card */
+.org {
+    background: #fff;
+    border-bottom: 4px solid var(--brown);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 3px 10px #0000000d;
+}
+
+.org img {
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.org p {
+    margin: 0;
+    font-weight: 600;
+    color: #2b2622;
+}
+
+/* Tablet: 2 per row */
+@media (max-width: 980px) {
+    .org-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Phone: 1 per row */
+@media (max-width: 620px) {
+    .org-grid {
+        grid-template-columns: 1fr;
+    }
+}

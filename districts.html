@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDB-PIFS | District Summary</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/districts.css">
+    <script src="js/districts.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <a class="brand" href="index.html">
+            <img class="brand-logo"
+                 src="https://rdb.gov.lk/static/media/logo.060498f8276ee7cfda0d.jpeg"
+                 alt="Rural Development Bureau logo">
+            <span>RDB-PIFS</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
+
+        <nav class="site-nav" id="siteNav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="districts.html" class="active">District Summary</a>
+            <a href="dashboard.html#progress-charts">Progress</a>
+            <a href="dashboard.html#concept-summary">Concept Approval</a>
+            <a href="dashboard.html#implementation-summary">Implementation</a>
+            <a href="all-projects.html">All Projects</a>
+            <a href="add-project.html">+ Add Project</a>
+            <a href="login.html" class="btn-login" id="logoutLink">Logout</a>
+        </nav>
+
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="dist-page">
+
+        <!-- Dashboard Button -->
+        <a class="btn-dash" href="dashboard.html">Dashboard</a>
+
+        <!-- District Buttons -->
+        <div class="district-grid" id="districtGrid"></div>
+
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="js/districts.js"></script>
+
+</body>
+</html>
